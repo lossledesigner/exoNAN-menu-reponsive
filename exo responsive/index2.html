@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>exo1</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome/css/all.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome/css/brands.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome/css/regular.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome/css/solid.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome/css/.css">
+</head>
+<body>
+    <header>
+     	
+     	<nav class="nav1">
+     		<img src="images/image1.png" class="img1">
+     	</nav>
+     	 <nav class="nav2">
+     		 <ul class="ul1">
+     		 	<li><a href="">accueil</a></li>
+     		 	<li><a href="">formation</a></li>
+     		 	<li><a href="">a propos</a></li>
+     		 	<li><a href="">objectif</a></li>
+     		 	<li><a href="">inscripion</a></li>
+     		</ul>
+     		  <button type="button" class="declancheur"><i class="fa fa-bars" aria-hidden="true"></i></button>
+     	</nav>
+     	 <div id="hambergeure-sidebar">
+     	 	<div class="hambergeure-sidebar-header"></div>
+     	 	<div class="hambergeure-sidebar-body">
+     	 </div>
+     	 </div>
+     	 <div id="hambergeure-sidebar-overlay"></div>
+     	 
+    </header>
+
+       <main>
+     	 <div class="formul1">
+     		<form id="formul2" method="post" action="index.php"> 
+     		  <fieldset>
+     		  	<h2 id="premierh2">nous somme a votre disposition</h2>
+     			 <label> nom</label>&nbsp;&nbsp;&nbsp;<span class="erreur"></span><br>
+     			 <input type="text" name="" id="nom" placeholder="" required=""><br><br>
+     			  <label>prenom</label>&nbsp;&nbsp;&nbsp;<span class="erreur2"></span><br>
+     			 <input type="text" name="" id="prenom" placeholder=""required=""><br><br>
+     			  <label>mot de pass</label>&nbsp;&nbsp;<span class="erreur4"></span><br>
+     			 <input type="password" name="" id="motdepass" placeholder="" required=""><br><br>
+     			  <label>confirmer mdp</label>&nbsp;&nbsp;<span class="erreur3"></span><br>
+     			 <input type="password" name="" id="cmdp" placeholder="" required=""><br><br>
+     			 <input type="submit" value="inscription" class="submit"><br>
+
+     		  </fieldset>
+
+     		</form>
+     	</div>
+
+      </main>
+
+      <script type="text/javascript">
+       var content= document.querySelector(".nav2");
+       var sidebarsbody=document.querySelector(".hambergeure-sidebar-body");
+       var button=document.querySelector(".declancheur");
+       var overlay=document.querySelector("#hambergeure-sidebar-overlay");
+       var activitedClass="hambergeure-activited";
+       var sidbar=document.querySelector("#hambergeure-sidebar");
+       var nom=document.getElementById('nom');
+       var prenom=document.getElementById('prenom');
+       var motdepass=document.getElementById('motdepass');
+       var cmdp=document.getElementById('cmdp');
+       var erreur=document.querySelector('.erreur');
+       var erreur2=document.querySelector('.erreur2');
+       var erreur3=document.querySelector('.erreur3');
+       var erreur4=document.querySelector('.erreur4');
+       var formulaire=document.getElementById('formul2');
+       
+      
+        sidebarsbody.innerHTML=content.innerHTML;
+
+        button.addEventListener('click', function(){
+		        overlay.style.display="block"; 
+		      	sidbar.style.marginLeft="0%"; 
+			    sidbar.style.transitionDuration="0.3s";
+			    sidbar.style.transitionStyle="ease-out";
+      	    });
+
+        overlay.addEventListener('click', function(){
+		        overlay.style.display="none"; 
+		      	sidbar.style.marginLeft="-100%"; 
+			    sidbar.style.transitionDuration="0.3s";
+			    sidbar.style.transitionStyle="ease-out";
+      	   });
+
+     
+      	nom.addEventListener('input', function(e){
+
+		        if(this.value.length > 8){
+
+		        e.preventDefault();
+                erreur.innerHTML="caractère depassé";
+		                 } 
+		        
+		        else     { 
+		        	  erreur.innerHTML="";
+		                    }
+		          
+               });
+
+
+      	prenom.addEventListener('input', function(e){
+
+              if(this.value.length > 12){
+
+                e.preventDefault();
+                erreur2.innerHTML="caractère depassé";
+                          } 
+        
+              else  { 
+        	  erreur2.innerHTML="";
+                    }
+
+             
+                });
+
+      	motdepass.addEventListener('input', function(e){
+
+              if(this.value.length <8){
+
+                e.preventDefault();
+                erreur4.innerHTML=" 8 caractère min";
+                          } 
+        
+              else  { 
+        	  erreur4.innerHTML="";
+                    }
+
+             
+                });
+
+      	cmdp.addEventListener('input', function(){
+
+			    if(this.value.length <8){
+
+			    e.preventDefault();  
+			    erreur3.innerHTML="8 caractère min";
+			             } 
+			    
+			    else     { 
+			    	  erreur3.innerHTML="";
+			                }
+
+			    });
+
+       formulaire.addEventListener('submit', function(){
+
+       	alert("envoyez le formulaire");
+       });
+
+ </script>
+</body>
+</html>
